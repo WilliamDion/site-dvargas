@@ -7,80 +7,255 @@
   <meta name="description" content="Dvargas Barber Shop - cortes masculinos, barba e atendimento profissional." />
 
   <style>
+    :root {
+      --bg-dark: #0e0e0e;
+      --bg-light: #161616;
+      --gold: #f5c16c;
+      --text-muted: #b5b5b5;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #111;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg-dark);
       color: #fff;
     }
-    header {
-      background: #000;
-      padding: 40px 20px;
-      text-align: center;
+
+    /* MENU */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 20px;
+      z-index: 1000;
     }
+
+    nav a {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      padding-bottom: 5px;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    /* HEADER */
+    header {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                  url('https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+      max-width: 180px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #eee;
+    }
+
     section {
-      padding: 40px 20px;
-      max-width: 900px;
+      padding: 80px 20px;
+      max-width: 1100px;
       margin: auto;
     }
-    h1, h2 {
-      color: #f5c16c;
+
+    h2 {
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-size: 32px;
     }
-    .services li {
-      margin-bottom: 8px;
+
+    /* SOBRE */
+    .sobre p {
+      max-width: 700px;
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.6;
     }
+
+    /* SERVIÇOS */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--bg-light);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      color: #fff;
+    }
+
+    .price {
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* GALERIA */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+
+    /* CONTATO */
+    .contato p {
+      font-size: 17px;
+      color: var(--text-muted);
+    }
+
+    .contato a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
     footer {
       background: #000;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
       font-size: 14px;
       color: #aaa;
     }
-    a {
-      color: #f5c16c;
-      text-decoration: none;
+
+    /* OFFSET MENU FIXO */
+    section { scroll-margin-top: 80px; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 36px; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Dvargas Barber Shop</h1>
-    <p>Cortes masculinos • Barba • Estilo</p>
+  <nav>
+    <a href="#home">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <header id="home">
+    <!-- Substitua o src pela logo da barbearia -->
+    <div>
+      <img src="https://via.placeholder.com/200x200?text=LOGO" alt="Logo Dvargas Barber Shop">
+      <h1>Dvargas Barber Shop</h1>
+      <p>Cortes masculinos • Barba • Estilo</p>
+    </div>
   </header>
 
-  <section>
+  <section id="sobre" class="sobre">
     <h2>Sobre nós</h2>
     <p>
-      A Dvargas Barber Shop oferece serviços de corte de cabelo e barba,
-      com atendimento profissional e ambiente acolhedor.
+      A Dvargas Barber Shop oferece serviços de corte de cabelo e barba com alto padrão de qualidade,
+      atendimento profissional e um ambiente pensado para o seu conforto.
       Atendemos clientes em <strong>Gravataí - RS</strong>.
     </p>
   </section>
 
-  <section>
+  <section id="servicos">
     <h2>Serviços</h2>
-    <ul class="services">
-      <li>Corte masculino</li>
-      <li>Barba tradicional</li>
-      <li>Corte + barba</li>
-      <li>Acabamento e navalha</li>
-    </ul>
+    <div class="services">
+      <div class="service-card">
+        <h3>Corte Masculino</h3>
+        <p class="price">R$ 35,00</p>
+      </div>
+      <div class="service-card">
+        <h3>Barba Tradicional</h3>
+        <p class="price">R$ 30,00</p>
+      </div>
+      <div class="service-card">
+        <h3>Corte + Barba</h3>
+        <p class="price">R$ 50,00</p>
+      </div>
+      <div class="service-card">
+        <h3>Acabamento / Navalha</h3>
+        <p class="price">R$ 20,00</p>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="galeria">
+    <h2>Galeria</h2>
+    <div class="gallery">
+      <!-- Substitua as imagens pelas fotos reais -->
+      <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186" alt="Corte 1">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Corte 2">
+      <img src="https://images.unsplash.com/photo-1621605810051-809d2b63f2c1" alt="Corte 3">
+      <img src="https://images.unsplash.com/photo-1596728325488-58c87691e9af" alt="Corte 4">
+      <img src="https://images.unsplash.com/photo-1622288432450-277d0fef5ed3" alt="Corte 5">
+      <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9" alt="Corte 6">
+      <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" alt="Corte 7">
+      <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35" alt="Corte 8">
+      <img src="https://images.unsplash.com/photo-1593702295094-5dbe84fba7b4" alt="Corte 9">
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
     <h2>Contato</h2>
     <p>
-      📞 WhatsApp: <a href="https://wa.me/55519980583680">(51) 980583680</a><br>
+      📞 WhatsApp: <a href="https://wa.me/5551980583680">(51) 98058-3680</a><br>
       📍 Endereço: Nestor de Moura Jardim, 475 - Gravataí - RS
     </p>
   </section>
 
   <footer>
-    <p>DVargas Barber Shop<br>
+    <p>
+      DVargas Barber Shop<br>
       CNPJ: 49.498.848/0001-81
     </p>
   </footer>
 
 </body>
 </html>
+
